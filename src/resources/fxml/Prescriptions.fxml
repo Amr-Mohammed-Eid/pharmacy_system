@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.pharmacy.controller.PrescriptionController" stylesheets="/css/styles.css">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="module-header">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Prescription Management" styleClass="module-title"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.5" orientation="VERTICAL">
+            <TableView fx:id="prescriptionTable">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="patientIdColumn" text="Patient ID" prefWidth="80" />
+                    <TableColumn fx:id="doctorIdColumn" text="Doctor ID" prefWidth="80" />
+                    <TableColumn fx:id="issueDateColumn" text="Issue Date" prefWidth="100" />
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="100" />
+                </columns>
+            </TableView>
+            
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+                
+                <TabPane>
+                    <Tab text="Prescription Details" closable="false">
+                        <GridPane hgap="10" vgap="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <Label text="Patient:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label" />
+                            <ComboBox fx:id="patientComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Doctor:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label" />
+                            <ComboBox fx:id="doctorComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Issue Date:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label" />
+                            <DatePicker fx:id="issueDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Expiry Date:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form-label" />
+                            <DatePicker fx:id="expiryDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Status:" GridPane.rowIndex="0" GridPane.columnIndex="2" styleClass="form-label" />
+                            <ComboBox fx:id="statusComboBox" GridPane.rowIndex="0" GridPane.columnIndex="3" styleClass="form-field" />
+                            
+                            <Label text="Notes:" GridPane.rowIndex="1" GridPane.columnIndex="2" styleClass="form-label" />
+                            <TextArea fx:id="notesTextArea" GridPane.rowIndex="1" GridPane.columnIndex="3" 
+                                     GridPane.rowSpan="3" styleClass="form-field" />
+                        </GridPane>
+                    </Tab>
+                    
+                    <Tab text="Prescription Items" closable="false">
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <TableView fx:id="itemsTable">
+                                <columns>
+                                    <TableColumn fx:id="itemIdColumn" text="Item ID" prefWidth="80" />
+                                    <TableColumn fx:id="medicationIdColumn" text="Medication ID" prefWidth="100" />
+                                    <TableColumn fx:id="dosageColumn" text="Dosage" prefWidth="150" />
+                                    <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="80" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+                </TabPane>
+                
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="addButton" text="Add" onAction="#handleAdd" styleClass="primary-button" />
+                    <Button fx:id="updateButton" text="Update" onAction="#handleUpdate" styleClass="primary-button" />
+                    <Button fx:id="deleteButton" text="Delete" onAction="#handleDelete" styleClass="primary-button" />
+                    <Button fx:id="clearButton" text="Clear" onAction="#handleClear" styleClass="primary-button" />
+                    <Separator orientation="VERTICAL" />
+                    <Button fx:id="verifyButton" text="Verify" onAction="#handleVerify" styleClass="primary-button" disable="true" />
+                    <Button fx:id="dispenseButton" text="Dispense" onAction="#handleDispense" styleClass="primary-button" disable="true" />
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+</BorderPane>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainPane" fx:controller="com.pharmacy.controller.DashboardController" 
+            xmlns:fx="http://javafx.com/fxml" stylesheets="/css/styles.css">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Pharmacy Management System" styleClass="title-label"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="userLabel" text="Welcome, User" />
+            <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" 
+                    styleClass="logout-button" />
+        </HBox>
+    </top>
+    
+    <left>
+        <VBox spacing="5" styleClass="sidebar">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Button fx:id="inventoryButton" text="Inventory" onAction="#handleInventory" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="prescriptionsButton" text="Prescriptions" onAction="#handlePrescriptions" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="salesButton" text="Sales" onAction="#handleSales" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="patientsButton" text="Patients" onAction="#handlePatients" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="suppliersButton" text="Suppliers" onAction="#handleSuppliers" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="reportsButton" text="Reports" onAction="#handleReports" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+            <Button fx:id="usersButton" text="Users" onAction="#handleUsers" 
+                    styleClass="menu-button" maxWidth="Infinity" />
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane styleClass="content-area">
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="Welcome to Pharmacy Management System" styleClass="welcome-label"/>
+                <Label text="Select a module from the sidebar to get started" styleClass="info-label"/>
+                
+                <GridPane hgap="20" vgap="20" alignment="CENTER">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20" />
+                    </padding>
+                    
+                    <VBox alignment="CENTER" spacing="10" styleClass="dashboard-card" 
+                          GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <Label text="Inventory" styleClass="card-title"/>
+                        <Label text="Manage products and stock" />
+                        <Button text="Open" onAction="#handleInventory" styleClass="card-button" />
+                    </VBox>
+                    
+                    <VBox alignment="CENTER" spacing="10" styleClass="dashboard-card" 
+                          GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <Label text="Prescriptions" styleClass="card-title"/>
+                        <Label text="Manage patient prescriptions" />
+                        <Button text="Open" onAction="#handlePrescriptions" styleClass="card-button" />
+                    </VBox>
+                    
+                    <VBox alignment="CENTER" spacing="10" styleClass="dashboard-card" 
+                          GridPane.rowIndex="1" GridPane.columnIndex="0">
+                        <Label text="Sales" styleClass="card-title"/>
+                        <Label text="Process sales and payments" />
+                        <Button text="Open" onAction="#handleSales" styleClass="card-button" />
+                    </VBox>
+                    
+                    <VBox alignment="CENTER" spacing="10" styleClass="dashboard-card" 
+                          GridPane.rowIndex="1" GridPane.columnIndex="1">
+                        <Label text="Reports" styleClass="card-title"/>
+                        <Label text="Generate and view reports" />
+                        <Button text="Open" onAction="#handleReports" styleClass="card-button" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+        </StackPane>
+    </center>
+    
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" styleClass="footer">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="© 2025 Pharmacy Management System" />
+        </HBox>
+    </bottom>
+    
+</BorderPane>

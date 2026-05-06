@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.pharmacy.controller.SalesController" stylesheets="/css/styles.css">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="module-header">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Sales Management" styleClass="module-title"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.3" orientation="VERTICAL">
+            <TableView fx:id="saleTable">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="patientIdColumn" text="Patient ID" prefWidth="80" />
+                    <TableColumn fx:id="cashierIdColumn" text="Cashier ID" prefWidth="80" />
+                    <TableColumn fx:id="saleDateColumn" text="Sale Date" prefWidth="100" />
+                    <TableColumn fx:id="totalColumn" text="Total" prefWidth="80" />
+                    <TableColumn fx:id="statusColumn" text="Status" prefWidth="100" />
+                </columns>
+            </TableView>
+            
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+                
+                <HBox spacing="10">
+                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Patient:" styleClass="form-label" />
+                            <ComboBox fx:id="patientComboBox" prefWidth="200" />
+                        </HBox>
+                        
+                        <TableView fx:id="itemsTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="itemIdColumn" text="Item ID" prefWidth="60" />
+                                <TableColumn fx:id="productNameColumn" text="Product" prefWidth="150" />
+                                <TableColumn fx:id="quantityColumn" text="Qty" prefWidth="50" />
+                                <TableColumn fx:id="unitPriceColumn" text="Price" prefWidth="80" />
+                                <TableColumn fx:id="subtotalColumn" text="Subtotal" prefWidth="80" />
+                            </columns>
+                        </TableView>
+                        
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Product:" styleClass="form-label" />
+                            <ComboBox fx:id="productComboBox" prefWidth="200" />
+                            <Label text="Quantity:" styleClass="form-label" />
+                            <TextField fx:id="quantityField" prefWidth="80" />
+                            <Button fx:id="addItemButton" text="Add Item" onAction="#handleAddItem" styleClass="primary-button" />
+                            <Button fx:id="removeItemButton" text="Remove Item" onAction="#handleRemoveItem" styleClass="primary-button" />
+                        </HBox>
+                    </VBox>
+                    
+                    <VBox spacing="10" alignment="TOP_RIGHT" minWidth="250">
+                        <GridPane hgap="10" vgap="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <Label text="Subtotal:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label" />
+                            <Label fx:id="subtotalLabel" text="$0.00" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="form-value" />
+                            
+                            <Label text="Tax:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label" />
+                            <Label fx:id="taxLabel" text="$0.00" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-value" />
+                            
+                            <Label text="Discount:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label" />
+                            <Label fx:id="discountLabel" text="$0.00" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-value" />
+                            
+                            <Separator GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+                            
+                            <Label text="Total:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="form-label" />
+                            <Label fx:id="totalLabel" text="$0.00" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="total-value" />
+                        </GridPane>
+                        
+                        <VBox spacing="10" styleClass="payment-panel">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <Label text="Discount" styleClass="section-label" />
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <TextField fx:id="discountField" promptText="Amount" prefWidth="80" />
+                                <ComboBox fx:id="discountTypeComboBox" promptText="Type" prefWidth="120" />
+                                <Button fx:id="applyDiscountButton" text="Apply" onAction="#handleApplyDiscount" styleClass="primary-button" />
+                            </HBox>
+                            
+                            <Separator />
+                            
+                            <Label text="Payment" styleClass="section-label" />
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <ComboBox fx:id="paymentMethodComboBox" promptText="Method" prefWidth="150" />
+                                <Button fx:id="processPaymentButton" text="Process Payment" onAction="#handleProcessPayment" styleClass="primary-button" />
+                            </HBox>
+                            
+                            <HBox spacing="10" alignment="CENTER">
+                                <Button fx:id="newSaleButton" text="New Sale" onAction="#handleNewSale" styleClass="primary-button" />
+                                <Button fx:id="printReceiptButton" text="Print Receipt" onAction="#handlePrintReceipt" styleClass="primary-button" disable="true" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+</BorderPane>

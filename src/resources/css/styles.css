@@ -1,0 +1,211 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Login Screen Styles */
+.login-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-max-width: 400px;
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.subtitle-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #34495e;
+}
+
+.info-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #7f8c8d;
+}
+
+.primary-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Dashboard Styles */
+.header {
+    -fx-background-color: #3498db;
+    -fx-padding: 10px;
+}
+
+.header .title-label {
+    -fx-text-fill: white;
+}
+
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-min-width: 200px;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 15 10 15;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #34495e;
+}
+
+.logout-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10 5 10;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.content-area {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+}
+
+.welcome-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.dashboard-card {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-padding: 20px;
+    -fx-min-width: 200px;
+    -fx-min-height: 150px;
+}
+
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.card-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5 15 5 15;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.card-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.footer {
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+}
+
+/* Form Styles */
+.form-container {
+    -fx-spacing: 10px;
+}
+
+.form-field {
+    -fx-pref-width: 300px;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+}
+
+/* Alert Styles */
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #3498db;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Tab Styles */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #ecf0f1;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #bdc3c7;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #3498db;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Status Indicators */
+.status-low {
+    -fx-text-fill: #e74c3c;
+}
+
+.status-medium {
+    -fx-text-fill: #f39c12;
+}
+
+.status-high {
+    -fx-text-fill: #2ecc71;
+}

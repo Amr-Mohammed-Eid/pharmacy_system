@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.pharmacy.controller.InventoryController" stylesheets="/css/styles.css">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="module-header">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Inventory Management" styleClass="module-title"/>
+        </HBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.6" orientation="VERTICAL">
+            <TableView fx:id="productTable">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="nameColumn" text="Name" prefWidth="150" />
+                    <TableColumn fx:id="categoryColumn" text="Category" prefWidth="100" />
+                    <TableColumn fx:id="manufacturerColumn" text="Manufacturer" prefWidth="150" />
+                    <TableColumn fx:id="priceColumn" text="Price" prefWidth="80" />
+                    <TableColumn fx:id="stockColumn" text="Stock" prefWidth="80" />
+                </columns>
+            </TableView>
+            
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+                
+                <TabPane>
+                    <Tab text="Product Details" closable="false">
+                        <GridPane hgap="10" vgap="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label" />
+                            <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label" />
+                            <TextField fx:id="descriptionField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Category:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label" />
+                            <ComboBox fx:id="categoryComboBox" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Manufacturer:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="form-label" />
+                            <TextField fx:id="manufacturerField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Price:" GridPane.rowIndex="0" GridPane.columnIndex="2" styleClass="form-label" />
+                            <TextField fx:id="priceField" GridPane.rowIndex="0" GridPane.columnIndex="3" styleClass="form-field" />
+                            
+                            <Label text="Stock Level:" GridPane.rowIndex="1" GridPane.columnIndex="2" styleClass="form-label" />
+                            <TextField fx:id="stockField" GridPane.rowIndex="1" GridPane.columnIndex="3" styleClass="form-field" />
+                            
+                            <Label text="Reorder Level:" GridPane.rowIndex="2" GridPane.columnIndex="2" styleClass="form-label" />
+                            <TextField fx:id="reorderLevelField" GridPane.rowIndex="2" GridPane.columnIndex="3" styleClass="form-field" />
+                            
+                            <Label text="Prescription Required:" GridPane.rowIndex="3" GridPane.columnIndex="2" styleClass="form-label" />
+                            <ComboBox fx:id="prescriptionRequiredComboBox" GridPane.rowIndex="3" GridPane.columnIndex="3" styleClass="form-field" />
+                        </GridPane>
+                    </Tab>
+                    
+                    <Tab text="Medication Details" closable="false">
+                        <GridPane hgap="10" vgap="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10" />
+                            </padding>
+                            
+                            <Label text="Dosage:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="form-label" />
+                            <TextField fx:id="dosageField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Active Ingredients:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="form-label" />
+                            <TextField fx:id="activeIngredientsField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-field" />
+                            
+                            <Label text="Expiry Date:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="form-label" />
+                            <DatePicker fx:id="expiryDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-field" />
+                        </GridPane>
+                    </Tab>
+                </TabPane>
+                
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button fx:id="addButton" text="Add" onAction="#handleAdd" styleClass="primary-button" />
+                    <Button fx:id="updateButton" text="Update" onAction="#handleUpdate" styleClass="primary-button" />
+                    <Button fx:id="deleteButton" text="Delete" onAction="#handleDelete" styleClass="primary-button" />
+                    <Button fx:id="clearButton" text="Clear" onAction="#handleClear" styleClass="primary-button" />
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+</BorderPane>
